@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+mongoose.set('strictQuery', false);
 const product = mongoose.model('Product', new mongoose.Schema({
     productName: {
         type: String,
@@ -29,7 +30,5 @@ const product = mongoose.model('Product', new mongoose.Schema({
     }
 }));
 
-module.exports = {
-    product
-};
+module.exports = product;
 

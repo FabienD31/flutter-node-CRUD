@@ -1,8 +1,7 @@
-const { product } = require('../models/products.model');
+const product = require('../models/products.model');
 
 const createProduct = async (req, res) => {
-    const { productName, productDescription, productPrice } = req.body;
-    const productImage = req.file.path;
+    const { productName, productDescription, productPrice, productImage } = req.body;
 
     const newProduct = new product({
         productName,
@@ -49,7 +48,7 @@ const updateProduct = async (req, res) => {
 const deleteProduct = async (req, res) => {
     try {
         const deletedProduct = await product.findByIdAndDelete(req.params.id);
-        res.status(200).json(deletedProduct);
+        res.status(200).json("Product deleted");
     } catch (error) {
         res.status(400).json(error);
     }
